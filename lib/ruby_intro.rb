@@ -7,7 +7,7 @@ def sum arr
   if arr.empty?
     return arr_total
   else
-  arr.inject{|arr_total, x| arr_total + x }
+    arr.inject{|arr_total, x| arr_total + x }
   end
 end
 
@@ -34,8 +34,6 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  return false if s.chars.empty?
-  # s !~ (/^[^AEIOUaeiou]/)
   !!(s[0] =~ /[bcdfghjklmnprstvwxyz]+/i)
 end
 
@@ -50,5 +48,15 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn, :price
+
+  def initialize(isbn, price)
+    @isbn = isbn
+    @price = price
+    raise ArgumentError if price <= 0 || isbn == ''
+  end
+
+  def price_as_string
+    "$" +('%.2f' %@price).to_s
+    end
 end
