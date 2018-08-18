@@ -3,15 +3,28 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr_total = 0
+  if arr.empty?
+    return arr_total
+  else
+  arr.inject{|arr_total, x| arr_total + x }
+  end
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  max_2 = 0
+  if arr.empty?
+    max_2
+  elsif arr.length == 1
+    return arr[0]
+  else
+    max = arr.sort.reverse.first(2)
+    max_2 = max[0] + max[1]
+  end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  arr.combination(2).any? {|a, b| a + b == n }
 end
 
 # Part 2
